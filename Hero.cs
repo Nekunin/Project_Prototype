@@ -10,9 +10,12 @@ namespace Project_Prototype
     {
         public int HP = 500;
         public int MP = 50;
-        public int str = 5;
-        public int res = 5;
-        public int spd = 5;  
-        public int luck = 5;
+        public int STR = 5;
+        public int INT = 5;
+        public int MATK = 5;
+        public int END = 5;
+        public int RES = 5;
+        public int SPD = 5;  
+        public int LUCK = 15;
     }
 }
