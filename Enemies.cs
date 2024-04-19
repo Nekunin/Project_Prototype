@@ -9,21 +9,24 @@ namespace Project_Prototype
 {
     internal class Enemies
     {
-        int HP;
-        int MP;
-        int str;
-        int res;
-        int spd;
-        int luck;
+    }
 
-        public class Sherk{
-            int HP = 150;
-            int MP = 0;
-            int str = 15;
-            int res = 20;
-            int spd = 4;
-            int luck = 0;
+
+        public class Goblin{
+            public int HP = 40;
+            public int MP = 0;
+            public int str = 4;
+            public int res = 3;
+            public int spd = 13;
+            public int luck = 0;
         }
-        public class 
+        public class Orc
+    {
+        public int HP = 150;
+        public int MP = 0;
+        public int str = 15;
+        public int res = 20;
+        public int spd = 4;
+        public int luck = 0;
     }
 }
