@@ -25,17 +25,7 @@ namespace Project_Prototype
         public int HP
         {
             get => hp;
-            set
-            {
-                if ((hp + value) > MaxHP)
-                {
-                    hp = MaxHP;
-                }
-                else
-                {
-                    hp = value;
-                }
-            }
+            set => hp = value;
         }
         public string Name
         {
