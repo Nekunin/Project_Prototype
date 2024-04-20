@@ -10,7 +10,7 @@ namespace Project_Prototype
 {
     public class BattleMenu
     {
-        static void gameLoop(Hero player, MinorEnemy monster)
+        public static void gameLoop(Hero player, MinorEnemy monster)
         {
             int playerChoice = 0;
             do
