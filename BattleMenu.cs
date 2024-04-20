@@ -51,7 +51,7 @@ namespace Project_Prototype
                 {
                     Console.Clear();
                     Console.WriteLine("{0}'s info", player.Name);
-                    Console.WriteLine("HP: {0}/{1}", player.Health, player.MaxHealth);
+                    Console.WriteLine("HP: {0}/{1}", player.HP, player.MaxHP);
                     Console.ReadKey();
                 }
             } while (player.HP > 0 && monster.HP > 0);
