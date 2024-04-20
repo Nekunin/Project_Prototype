@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project_Prototype
 {
-    internal class Hero
+    public class Hero
     {
+        public int MaxHP = 500;
         public int HP = 500;
         public int MP = 50;
         public int STR = 5;
