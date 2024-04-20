@@ -23,9 +23,16 @@ namespace Project_Prototype
                 p.HP += hpRecover;
             }
         }
-        public static void CheckMP(Hero p)
+        public static void CheckMP(Hero p, int mpRecover)
         {
-
+            if (p.MP + mpRecover > p.MaxMP)
+            {
+                p.MP = p.MaxMP;
+            }
+            else
+            {
+                p.MP += mpRecover;
+            }
         }
     }
     public class LesserHealingPotion
