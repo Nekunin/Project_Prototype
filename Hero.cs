@@ -8,9 +8,10 @@ namespace Project_Prototype
 {
     public class Hero
     {
+        public string name;
         public int MaxHP = 500;
         public int MaxMP = 50;
-        public int HP = 500;
+        public int hp = 500;
         public int MP = 50;
         public int STR = 5;
         public int INT = 5;
@@ -19,5 +20,35 @@ namespace Project_Prototype
         public int RES = 5;
         public int SPD = 5;  
         public int LUCK = 15;
+
+        public int HP
+        {
+            get => hp;
+            set
+            {
+                if ((HP + value) > MaxHp)
+                {
+                    HP = MaxHP;
+                }
+                else
+                {
+                    HP = value;
+                }
+            }
+        }
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
+        public void TakeDamage(int dmg)
+        {
+            HP -= dmg;
+        }
+        public int GiveDamage()
+        {
+            //can change later
+            return 20;
+        }
     }
 }

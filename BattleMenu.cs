@@ -10,40 +10,55 @@ namespace Project_Prototype
 {
     public class BattleMenu
     {
-        public static void checkChoice(int c)
+        static void gameLoop(Hero player, MinorEnemy monster)
         {
-            Console.Clear();
-            switch(c)
+            int playerChoice = 0;
+            do
             {
-                case 1:
-                    Console.WriteLine("You attacked");
-                    break;
-                case 2:
-                    Console.WriteLine("You ran away");
-                    break;
-                case 3:
-                    Console.WriteLine("Choose potion");
-                    break;
-                default:
-                    dispBattleMenu();
-                    break;
-            }
-            
-        }
-        public static void dispBattleMenu()
-        {
-            int choice = 0;
+                Console.Clear();
+                Console.WriteLine("Enter 1 to attack, 2 to heal, 3 to check info");
+
+                try
+                {
+                    playerChoice = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    playerChoice = 0;
+                }
+
+                if (playerChoice == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You attacked!");
+                    Console.WriteLine("You dealt {0} dmg", player.GiveDamage());
+                    monster.TakeDamage(player.GiveDamage());
+                    Console.ReadKey();
+                    if (monster.HP > 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Enemy attacked!");
+                        Console.WriteLine("You took {0} dmg", monster.GiveDamage());
+                        player.TakeDamage(monster.GiveDamage());
+                        Console.ReadKey();
+                    }
+                }
+                else if (playerChoice == 2 || playerChoice == 2)
+                {
+                    //consume potion
+                }
+                else if (playerChoice == 3)
+                {
+                    Console.Clear();
+                    Console.WriteLine("{0}'s info", player.Name);
+                    Console.WriteLine("HP: {0}/{1}", player.Health, player.MaxHealth);
+                    Console.ReadKey();
+                }
+            } while (player.HP > 0 && monster.HP > 0);
+
             Console.Clear();
-
-            Console.WriteLine("Choose an option");
-            Console.WriteLine("Attack (1)  Flee (2)  Consumable  (3)");
-            Console.Write("Choice: ");
-            choice = int.Parse(Console.ReadLine());
-            checkChoice(choice);
-        }
-        public static void dispAttack()
-        {
-
+            Console.WriteLine("Battle is over!");
+            Console.WriteLine(player.HP > 0 ? "You win!" : "{0} has succumbed to their wounds", player.Name);
         }
     }
 }
