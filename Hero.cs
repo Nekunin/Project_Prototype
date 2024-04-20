@@ -27,13 +27,13 @@ namespace Project_Prototype
             get => hp;
             set
             {
-                if ((HP + value) > MaxHP)
+                if ((hp + value) > MaxHP)
                 {
-                    HP = MaxHP;
+                    hp = MaxHP;
                 }
                 else
                 {
-                    HP = value;
+                    hp = value;
                 }
             }
         }
