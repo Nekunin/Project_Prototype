@@ -10,8 +10,9 @@ namespace Project_Prototype
 {
     public class MinorEnemy
     {
+        public int hp;
         public string Name { get; private set; }
-        public int HP { get; set; }
+        public int HP { get => hp; set => hp = value; }
         public int MP { get; private set; }
         public int STR { get; private set; }
         public int INT { get; private set; }
