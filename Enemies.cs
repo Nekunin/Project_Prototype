@@ -36,6 +36,7 @@ namespace Project_Prototype
             {
                 CommonEnemies = new List<MinorEnemy>();
                 random = new Random();
+                DeathMark = new MinorEnemy("DEATH", 900, 900, 300, 300, 300, 300, 300, 300, 999);
                 EnemyCreator();
             }
             public void EnemyCreator()
@@ -47,8 +48,6 @@ namespace Project_Prototype
                 CommonEnemies.Add(new MinorEnemy("Bandit", 20, 10, 10, 10, 10, 5, 13, 9, 13));
                 CommonEnemies.Add(new MinorEnemy("Shadow", 80, 23, 22, 17, 13, 9999, -20, -5, 10));
                 CommonEnemies.Add(new MinorEnemy("Treant", 20, 10, 8, 14, 9, 35, -5, 0, 2));
-
-                DeathMark = new MinorEnemy("DEATH", 900, 900, 300, 300, 300, 300, 300, 300, 999);
 
             }
             public MinorEnemy GetRandomEnemy()
