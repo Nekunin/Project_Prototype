@@ -8,7 +8,7 @@
             Console.Write("Enter your name: ");
             name = Console.ReadLine();
             Hero hero = new Hero(name);
-            Enemy enemy = new Enemy();
+            MinorEnemy enemy = new Enemy();
             BattleMenu.gameLoop(hero, enemy);
             Console.WriteLine("Hello");
         }

@@ -26,6 +26,11 @@ namespace Project_Prototype
             Name = name; HP = hp; MP = mp; STR = str; INT = In;  MATK = matk; END = end; RES = res; SPD = spd; LUCK = luck;
             
         }
+        //For test gameloop
+        public MinorEnemy()
+        {
+            HP = 200;
+        }
         public void TakeDamage(int dmg)
         {
             HP -= dmg;
