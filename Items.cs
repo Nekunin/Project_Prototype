@@ -15,6 +15,10 @@ namespace Project_Prototype
         {
             Name = name; Description = description;
         }
+        public static void CheckMP(Hero p)
+        {
+
+        }
     }
     public class ConsumableItems : Items
     {
