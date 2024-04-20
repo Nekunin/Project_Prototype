@@ -23,6 +23,10 @@ namespace Project_Prototype
                 p.HP += hpRecover;
             }
         }
+        public static void CheckMP(Hero p)
+        {
+
+        }
     }
     public class LesserHealingPotion
     {
