@@ -59,6 +59,7 @@ namespace Project_Prototype
             Console.Clear();
             Console.WriteLine("Battle is over!");
             Console.WriteLine(player.HP > 0 ? "You win!" : "{0} has succumbed to their wounds", player.Name);
+            Console.ReadKey();
         }
     }
 }
