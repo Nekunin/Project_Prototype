@@ -1,4 +1,6 @@
-﻿namespace Project_Prototype
+﻿using System.Runtime.CompilerServices;
+
+namespace Project_Prototype
 {
     internal class Program
     {
@@ -7,10 +9,10 @@
             string name;
             Console.Write("Enter your name: ");
             name = Console.ReadLine();
-            Hero hero = new Hero(name);
-            MinorEnemy enemy = new Enemy();
+            Hero hero = new Hero();
+            hero.Name = name;
+            MinorEnemy enemy = new MinorEnemy();
             BattleMenu.gameLoop(hero, enemy);
-            Console.WriteLine("Hello");
         }
     }
 }

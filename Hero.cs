@@ -21,12 +21,13 @@ namespace Project_Prototype
         public int SPD = 5;  
         public int LUCK = 15;
 
+
         public int HP
         {
             get => hp;
             set
             {
-                if ((HP + value) > MaxHp)
+                if ((HP + value) > MaxHP)
                 {
                     HP = MaxHP;
                 }
