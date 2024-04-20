@@ -37,6 +37,6 @@ namespace Project_Prototype
         }
         //more to do here
     }
-    public class StatBoosters
+    //public class StatBoosters
 
 }
