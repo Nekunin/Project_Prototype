@@ -60,7 +60,7 @@ namespace Project_Prototype
     {
         public void Consume(Hero p)
         {
-
+            ///
         }
     }
 }
