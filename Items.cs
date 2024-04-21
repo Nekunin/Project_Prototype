@@ -15,17 +15,6 @@ namespace Project_Prototype
         {
             Name = name; Description = description;
         }
-        public static void CheckMP(Hero p, int mpRecover)
-        {
-            if (p.MP + mpRecover > p.MaxMP)
-            {
-                p.MP = p.MaxMP;
-            }
-            else
-            {
-                p.MP += mpRecover;
-            }
-        }
     }
     public class ConsumableItems : Items
     {
@@ -37,6 +26,6 @@ namespace Project_Prototype
         }
         //more to do here
     }
-    public class StatBoosters
+    public class StatBoosters();
 
 }
