@@ -6,6 +6,9 @@ namespace Project_Prototype
     {
         static void Main(string[] args)
         {
+            Game myGame = new Game();
+            myGame.start();
+
             string name;
             Console.Write("Enter your name: ");
             name = Console.ReadLine();
