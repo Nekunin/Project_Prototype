@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace Project_Prototype
 {
     class Game
     {
+        private static Hero MainChara = new Hero("test",1,1,1,1,1,1,1,1,1);
         public void start()
         {
 
@@ -66,8 +68,33 @@ Welcome to MJD-RPG, what would you like to do?
         }
         private void Play()
         {
-            Console.WriteLine("we will add something later");
+            Console.Clear();
+            string prompt = "Select Mode";
+            string[] options = { "Normal", "Hard" };
+            Menu Gamemode = new Menu(prompt, options);
+            int SelectedIndex = Gamemode.Run();
+            Story story = new Story();
+
+            switch (SelectedIndex)
+            {
+                case 0:
+                    NormalMode();
+                    story.StartingGame(MainChara);
+                    break;
+                case 1:
+                    HardMode();
+                    story.StartingGame(MainChara);
+                    break;
+            }
             ExitGame();
+        }
+        private void NormalMode()
+        {
+            MainChara = new Hero("Leon", 500, 30, 25, 10, 9, 23, 15, 18, 6);
+        }
+        private void HardMode()
+        {
+            MainChara = new Hero("Reset", 200, 250, 10, 32, 20, 9, 30, 25, 23);
         }
     }
 }

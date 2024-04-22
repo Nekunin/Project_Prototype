@@ -9,17 +9,21 @@ namespace Project_Prototype
     public class Hero
     {
         public string name;
-        public int MaxHP = 500;
-        public int MaxMP = 50;
-        public int hp = 500;
-        public int MP = 50;
-        public int STR = 5;
-        public int INT = 5;
-        public int MATK = 5;
-        public int END = 5;
-        public int RES = 5;
-        public int SPD = 5;  
-        public int LUCK = 15;
+        public int MaxHP;
+        public int MaxMP;
+        public int hp;
+        public int MP;
+        public int STR;
+        public int INT;
+        public int MATK;
+        public int END;
+        public int RES;
+        public int SPD;
+        public int LUCK;
+        public Hero(string aName, int maxhp, int maxmp, int str, int In, int matk, int end, int res, int spd, int luck) 
+        {
+            Name = aName; MaxHP = maxhp; MaxMP = maxmp; hp = maxhp; MP = maxmp; STR = str; INT = In; MATK = matk; END = end; RES = res; SPD = spd; LUCK = luck;
+        }
 
 
         public int HP
