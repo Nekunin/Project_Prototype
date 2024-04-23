@@ -20,7 +20,7 @@ namespace Project_Prototype
             {
             Prompt = prompt;
             Options = options;
-            SelectedIndex = -0;
+            SelectedIndex = 0;
         }
         private void DisplayOptions()
         {
