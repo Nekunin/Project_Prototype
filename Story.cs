@@ -9,6 +9,7 @@ namespace Project_Prototype
 {
     public class Story
     {
+        int observationcount = 0;
         public string Location = "Starting Area";
         public void StartingGame(Hero MainChara)
         {
@@ -32,10 +33,11 @@ namespace Project_Prototype
             }
             Console.WriteLine("I pray for your good fortune.");
             Console.ReadLine();
-            Console.Clear();
-            HeroInterface.CharacterInfo HeroMenu = new HeroInterface.CharacterInfo(MainChara);
-            HeroMenu.start();
-            Console.Clear();
+
+            //designed so that everytime you press h it will show you the current hp, mp and your name, but it makes the game extremely slow so I cutted it
+            //HeroInterface.CharacterInfo HeroMenu = new HeroInterface.CharacterInfo(MainChara);
+            //HeroMenu.start();
+            //Console.Clear();
             string prompt = $"{MainChara.Name}'s Adventure";
             string[] options = { "Move", "Look", "Talk", "Inventory" };
             Menu DailyLifeMenu = new Menu(prompt, options);
@@ -47,7 +49,7 @@ namespace Project_Prototype
                 switch (selectedIndex)
                 {
                     case 0:
-                        Console.WriteLine("It has not been implemented yet");
+                        Movement();
                         break;
                     case 1:
                         Observations();
@@ -67,9 +69,12 @@ namespace Project_Prototype
         {
             if (Location == "Starting Area")
             {
-                Console.WriteLine("You see a small town");
-                Console.ReadLine();
-                Console.WriteLine(@"XxXXXxx++;;;;;+;;;;;;;;;;;+++++;;::::::::::::::::::::::::::::+++xX+;;;;;;;;;;;++;;;;;;;::;;:::::::::
+                if (observationcount == 0)
+                {
+                    Console.WriteLine("You see a small town");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine(@"XxXXXxx++;;;;;+;;;;;;;;;;;+++++;;::::::::::::::::::::::::::::+++xX+;;;;;;;;;;;++;;;;;;;::;;:::::::::
 $XXXXX+;xx+;+;;++++X+;;;++++++++++++xx+;;;;;::::::::::::::::;xXXX$XX+::;+++;;+++++++++++::::::::::::
 XXxXXXXXxXx++++++;++++;;++++++++++++xx+++;;;;::::;::::;++xXXX$$$$$$$$Xx+++++++++++++::::::::::::::::
 XXX$$XX$XXXx+++x+++xx+;;;;+;++++++++++++++;;;++++++xXXX$$$$X$$$$$$$$$$$XXX++++;;+;;::::::::::::;;;;+
@@ -99,6 +104,41 @@ xXXXxXX+++;;:::::::::::::::::::::;+xx+;+xXX$$x;+++;:::::::;+++xxXXX$Xxx++;;+++;:
 xX$XX++++;;::::::::::::::::::::::::;++x++++xXXXXx;:;+++++xXXx+;;:::::::::..::..:::;;;+++xXx++++++xXx
 XXx+++++;;;::::::::::::::::::::::::::;++xx++++XXx+;:::..::..:....:::::::::::::::;++++xx;;;++++Xxx++x
 Xx+x+++++;;::::::::::::::::::::::::::::;+;;:.................:.::;+;+;+++++;+xx++xXxx;;;;xX+xxxXXXXX");
+                    observationcount++;
+                }
+                else
+                {
+                    Console.WriteLine(@"XxXXXxx++;;;;;+;;;;;;;;;;;+++++;;::::::::::::::::::::::::::::+++xX+;;;;;;;;;;;++;;;;;;;::;;:::::::::
+$XXXXX+;xx+;+;;++++X+;;;++++++++++++xx+;;;;;::::::::::::::::;xXXX$XX+::;+++;;+++++++++++::::::::::::
+XXxXXXXXxXx++++++;++++;;++++++++++++xx+++;;;;::::;::::;++xXXX$$$$$$$$Xx+++++++++++++::::::::::::::::
+XXX$$XX$XXXx+++x+++xx+;;;;+;++++++++++++++;;;++++++xXXX$$$$X$$$$$$$$$$$XXX++++;;+;;::::::::::::;;;;+
+$$$$$$$$$$XX+xxXxXxxxx+;;;+++;;;;;;;++++++++++XXXX$$$$$$$$$XXXXX::;;XX$$$$XX++++++++;;:::::::;;;++++
+$$$$$$$$$$XXXx++XxXxxX+;;;+;;;++++;;+++++xXX$$$$$$$XXXx+Xx:::;+XxXXxXX+x$$$$XX+xXXX+;;;;;+++xxXXXXXX
+$$$$$XX$$$$XXXXXxX$XXx;;;;x;;;;;;;+++++++X$$$$XXXX$$$$$XXXxxx++X;;;;Xx;;;x++XXXX$$$XXx++xXXXXXXXXXXX
+$$$XXXXX$$$XX$XXXXx+x+;::;+;;;;;;;;;;;+x$XXXXXXXXXxXX$XXXX$XXXxxxXXXXXx+XXXX$$$$X$$$$$XXXXXXXXXXXXXX
+$$$$$$XXX$$XX$XXx+;:....::;;:;;;;;;;++$$$$XX++XXXXx+++++++XXxXXXxxxxxXXX$$$$$$$$$$$$$$$$$XXXXXXXXXXX
+$$$$$$$$$$$$X$$X;:.......:;::::...:;$$$XXx;;++XXXxxxXXXXXXXXXX+xXXXX$$$XXXXXX$$x;::;X+X$$$XXXXXXXXXX
+$$$$$$$$$$$$$XXX+::...::.:;::::::::;;Xx+++:+++XXXXXxXXXxxx+xXXXX$$$$$$$$$$$$XXx+;;;+X+;;+$$$$XXXXXXX
+$$$$$$$$$$$X$XXXX++++;:..:;;;;;;;;;::;;;;+++++XXXXXXX++XXXXX$$$XXXXXXXX;:;;::+x;:;;+X++++xxX$$$$XXXX
+$$$$$$$$$$$XXXXXXxxx+++++;;;:;;;;;;;;;;;;++;++XXX++XXX$$$$$$$$$$$$Xx+++;;;;::+x::::;X+::;++;;+X$$$$$
+$$$$$$$XXX$XXX$XXXxxxx++x++++++;;;:::;;;;+;++++xxX$$$$$XXXxXx++;;+x++++++++++x+++xxxxxxxxx++++++X$$$
+$$$$$$$XXXX$$$$$XXXX$XXxx+++++++++xxx;;;;xxxxX$$$$$$$$$XXXX$$XXxX$$$$$$$$$XXXXXxxxx+++++++++;+$$$$$$
+XXxXXXXXXXxXXX$$XXXXXXXXXxxXXxxxxxxX+;;+X+xX$X$XXXXXXXxX+xX$$XX$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&$xXXXx
+XxxXXXXxXXXxxxxXXXXxxxXXXXXXXXXXxxxxxX$$XXXXXXxXx+++++$XXXX$XXXXX$$X$$$$$$$$$$$$$$$$$$$$$$$$$$$XxXXX
+XXXX;++XXXxxx+;;;xXXXXXxx+++xXXx+xXXx+;++;;::++x:;;+++XXXXXXXXXXXXXXXXXXXXXXXXXXX$$XXXXXX$XXXXXxXXXX
+x+XXX;:+X++x+++++;:::;++Xxxx+x;;++++++;+++;;;++x:;;+++XXX$XXXxXXX$XXXXXXXXXXXXXXXXXXXXXX$$XXXXXXxXXX
+X+xxXx;;;;+++++;+;:    .:;;:;++;;;++++;++++++++x;;;+++XXX$XXXXXXXXXXXx;;+;;++xXXXXXXXXX$$$XXXXXXXXxX
+++X+;;++;;++X+++x+.   ...;+x+xXXXxXx++;++++++x++++;+++XXX$X$XXXXXXXXXx;+x+++xxxXXX$XXXXXX$$XxXXxxXXX
+;;;x++xxx+xxxxXX+:.......:;xXXX+++;:::::++++++;+XXX++xXXX$X$XXXXXXXXX+;+xxXX+XXX$$$XXXX$X$X$XXXXXXXX
+X+;X$$XXxXX$X$x;:..........:+x;:+X+::::;+;::;+;:XXX++x$X$$X$XXXXX$XXX++++++++x++XxX$$$$$$$$$XX$$$XXX
+$$$$x+XxXX$$X+;:............:;+;++X$$+;:::::;;:.XXX++x$$XX$$XXXXX$$$$X$$$$$$$X+xX+X$$$$$$XXXXXXXXXX$
+x+++XxX$XXX+;;::::..:::......::;++++xX$+;;::::::XXX;;+XXXXXx++++++++xxxXXXXxXX+XXxXxxxXXXXXxxxxxxxxx
+XXXXXXXxX++;;::::::::::.::::.:::;+x+;++xXX+;::::::::;+++++++::;++xx++++xx++++++++++;;+++++xxxXX++xXX
+xXXXxXX+++;;:::::::::::::::::::::;+xx+;+xXX$$x;+++;:::::::;+++xxXXX$Xxx++;;+++;:;;++++;;::::::::::;+
+xX$XX++++;;::::::::::::::::::::::::;++x++++xXXXXx;:;+++++xXXx+;;:::::::::..::..:::;;;+++xXx++++++xXx
+XXx+++++;;;::::::::::::::::::::::::::;++xx++++XXx+;:::..::..:....:::::::::::::::;++++xx;;;++++Xxx++x
+Xx+x+++++;;::::::::::::::::::::::::::::;+;;:.................:.::;+;+;+++++;+xx++xXxx;;;;xX+xxxXXXXX");
+                }
             }
         }
         private void Conversations()
@@ -108,6 +148,32 @@ Xx+x+++++;;::::::::::::::::::::::::::::;+;;:.................:.::;+;+;+++++;+xx+
                 Console.WriteLine("There is no one to talk to");
             }
 
+        }
+        private void Movement()
+        {
+            if (observationcount == 0)
+            {
+                Console.WriteLine("You don't know where to go");
+                Console.WriteLine();
+                Console.WriteLine("Maybe if you were to take a look at your surroundings...");
+            }
+            if (observationcount > 0)
+            {
+                string FirstPrompt = "Where should I go?";
+                string[] FirstOptions = { "Don't Move", "Town" };
+                Menu FirstDisplacement = new Menu(FirstPrompt, FirstOptions);
+                int selectedIndex = FirstDisplacement.Run();
+
+                switch (selectedIndex)
+                {
+                    case 0:
+                        Console.WriteLine("There is nothing to do here though?");
+                        break;
+                    case 1:
+                        Console.WriteLine("it has not been implemented yet");
+                        break;
+                }
+            }
         }
     }
 }
