@@ -17,7 +17,7 @@ namespace Project_Prototype
             Console.WriteLine($"Welcome to a new world!");
             if (MainChara.Name == "Reset")
             {
-                Console.WriteLine($"You are a young priestes named {MainChara.Name}");
+                Console.WriteLine($"You are a young priestess named {MainChara.Name}");
                 Console.WriteLine("Your strength is comparable to a wet noodle, and your defense is akin to a sheet of paper");
                 Console.WriteLine("Taking hits could be fatal for you!");
                 Console.WriteLine("your true strength lies in your explosive magical power and super human speed");
@@ -26,7 +26,7 @@ namespace Project_Prototype
             else
             {
                 Console.WriteLine($"You are a young warrior named {MainChara.Name}");
-                Console.WriteLine("You might not be the birghtest tool in the shed, but your strength and toughness knows no bounds.");
+                Console.WriteLine("You might not be the brightest tool in the shed, but your strength and toughness knows no bounds.");
                 Console.WriteLine("Some enemies are immune to physical attacks so you should stock up bombs");
                 Console.WriteLine("Focus on getting stronger weapons and you will succeed, as long as you don't get unlucky");
 
