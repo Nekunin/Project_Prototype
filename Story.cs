@@ -13,6 +13,7 @@ namespace Project_Prototype
         public string Location = "Starting Area";
         public void StartingGame(Hero MainChara)
         {
+            
             Console.Clear();
             Console.WriteLine($"Welcome to a new world!");
             if (MainChara.Name == "Reset")
@@ -49,7 +50,7 @@ namespace Project_Prototype
                 switch (selectedIndex)
                 {
                     case 0:
-                        Movement();
+                        Movement(MainChara);
                         break;
                     case 1:
                         Observations();
@@ -149,8 +150,9 @@ Xx+x+++++;;::::::::::::::::::::::::::::;+;;:.................:.::;+;+;+++++;+xx+
             }
 
         }
-        private void Movement()
+        private void Movement(Hero MainChara)
         {
+            Story2 story2 = new Story2();
             if (observationcount == 0)
             {
                 Console.WriteLine("You don't know where to go");
@@ -170,7 +172,7 @@ Xx+x+++++;;::::::::::::::::::::::::::::;+;;:.................:.::;+;+;+++++;+xx+
                         Console.WriteLine("There is nothing to do here though?");
                         break;
                     case 1:
-                        Console.WriteLine("it has not been implemented yet");
+                        story2.Secondpart(MainChara);
                         break;
                 }
             }

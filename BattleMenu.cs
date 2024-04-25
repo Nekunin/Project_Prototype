@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
+
+//will be modified to fit into the game using a new menu
 //namespace Project_Prototype
 //{
 //    public class BattleMenu
