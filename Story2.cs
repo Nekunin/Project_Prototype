@@ -114,7 +114,7 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                         }
                         break;
                     case 3:
-                        Console.WriteLine("It has not been implemented yet");
+                        Inventory(MainChara);
                         break;
                 }
             }
@@ -125,6 +125,11 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
             {
                 Console.WriteLine("You don't know anything about the town");
                 Console.WriteLine("It would be wise to ask someone near you...");
+                Console.ReadLine();
+            }
+            if (talkcount == 1)
+            {
+                Console.WriteLine("Not Implemented Yet");
                 Console.ReadLine();
             }
 
@@ -169,16 +174,57 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
             Console.WriteLine("The guard appears to be slacking");
             Console.ReadLine();
         }
+        private void Inventory(Hero MainChara)
+        {
+            string InventoryP = $@"{MainChara.name}'s Inventory
+HP [{MainChara.MaxHP}/{MainChara.HP}] MP [{MainChara.MaxMP}/{MainChara.MP}]
+ Gold [To be Implemented Later]";
+            string[] InventoryO = { "Items", "Equipment", "Key Items" };
+            Menu InventoryMenu = new Menu(InventoryP, InventoryO);
+            while (true)
+            {
+                int Inv_selectedIndex = InventoryMenu.Run();
+
+                switch (Inv_selectedIndex)
+                {
+                    case 0:
+                        Console.WriteLine("Not Implemented Yet");
+                        break;
+                    case 1:
+                        Console.WriteLine("Not Implemented Yet");
+                        break;
+                    case 2:
+                        Console.WriteLine("Not Implemented Yet");
+                        break;
+                }
+            }
+        }
+        public void Equipment(Hero MainChara)
+        {
+            string EquipmentP = $"{MainChara.name}'s Inventory";
+            string[] EquipmentO = { "Weapon", "Armor", "Boots", "Accesory" };
+            Menu Equip = new Menu(EquipmentP, EquipmentO);
+            while (true)
+            {
+                int selectedIndex = Equip.Run();
+
+                switch (selectedIndex)
+                {
+                    case 0:
+                        Console.WriteLine("Not Implemented Yet");
+                        break;
+                    case 1:
+                        Console.WriteLine("Not Implemented Yet");
+                        break;
+                    case 2:
+                        Console.WriteLine("Not Implemented Yet");
+                        break;
+                }
+            }
+        }
+        public void EquipWeapon(Hero MainChara, Weapons X)
+        {
+            if 
+        }
     }
 }
-//        private void Inventory(Hero MainChara)
-//        {
-//            string InvPrompt = $@"{MainChara.name}'s Inventory
-//Gold [{MoneyManager.Money}
-//            Menu Inventory = new Menu(InvPrompt, InvOptions)
-//            {
-
-//            }
-//        }
-//    }
-//}

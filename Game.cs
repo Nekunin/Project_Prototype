@@ -10,7 +10,6 @@ namespace Project_Prototype
     class Game
     {
         private static Hero MainChara = new Hero("test",1,1,1,1,1,1,1,1,1);
-        private MoneyManager moneyManager;
         public void start()
         {
 

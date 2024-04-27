@@ -40,7 +40,7 @@ namespace Project_Prototype
             //HeroMenu.start();
             //Console.Clear();
             string prompt = $"{MainChara.Name}'s Adventure";
-            string[] options = { "Move", "Look", "Talk", "Inventory" };
+            string[] options = { "Move", "Look", "Talk"};
             Menu DailyLifeMenu = new Menu(prompt, options);
 
             while (true)
@@ -57,9 +57,6 @@ namespace Project_Prototype
                         break;
                     case 2:
                         Conversations();
-                        break;
-                    case 3:
-                        Console.WriteLine("It has not been implemented yet");
                         break;
                 }
                 Console.ReadLine();
