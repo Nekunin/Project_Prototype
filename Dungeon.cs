@@ -11,7 +11,7 @@ namespace Project_Prototype
         private MinorEnemyManager enemyManager;
         private int currentFloor;
         private int Goal;
-        public Dungeon(Hero MainChara, int Goal) 
+        public Dungeon(Hero MainChara, int Goal)
         {
 
             enemyManager = new MinorEnemyManager();
@@ -55,11 +55,20 @@ namespace Project_Prototype
                             }   
                             currentFloor++;
                             Console.WriteLine("You defeated the enemy!");
+                            if (currentFloor == 50)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("You win!");
+                                Console.ReadLine();
+                                ExitGame();
+                            }
                             Console.ReadLine();
                         }
                         break;
                     case 1:
-                        Console.WriteLine("not implemented yet");
+                        Console.WriteLine("You took a short rest. HP and MP recovered.");
+                        MainChara.HP += MainChara.MaxHP * .2;
+                        Console.WriteLine("{0}/{1}", MainChara.HP, MainChara.MaxHP);
                         break;
                     case 2:
                         Inventory_Equipment.Inventory(MainChara);
@@ -68,7 +77,7 @@ namespace Project_Prototype
                         Story2.Town(MainChara);
                         return;
                 }
-                 static void ExitGame()
+                static void ExitGame()
                 {
                     Console.WriteLine("\nPress any key to exit...");
                     Console.ReadKey();
