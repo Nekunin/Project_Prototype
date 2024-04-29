@@ -55,6 +55,13 @@ namespace Project_Prototype
                             }
                             currentFloor++;
                             Console.WriteLine("You defeated the enemy!");
+                            if (currentFloor == 50)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("You win!");
+                                Console.ReadLine();
+                                ExitGame();
+                            }
                             Console.ReadLine();
                         }
                         break;
