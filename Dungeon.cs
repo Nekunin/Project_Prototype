@@ -66,7 +66,8 @@ namespace Project_Prototype
                         }
                         break;
                     case 1:
-                        Console.WriteLine("not implemented yet");
+                        Console.WriteLine("You took a short rest. HP and MP recovered.");
+                        Console.WriteLine("{0}/{1}", MainChara.HP, MainChara.MaxHP);
                         break;
                     case 2:
                         Inventory_Equipment.Inventory(MainChara);
