@@ -66,7 +66,7 @@ namespace Project_Prototype
                         }
                         break;
                     case 1:
-                        Console.WriteLine("not implemented yet");
+                        Console.WriteLine("You took a nap. HP and MP recovered.");
                         break;
                     case 2:
                         Inventory_Equipment.Inventory(MainChara);
