@@ -67,7 +67,16 @@ namespace Project_Prototype
                         break;
                     case 1:
                         Console.WriteLine("You took a short rest. HP and MP recovered.");
-                        MainChara.HP += (int)(MainChara.MaxHP * .2);
+                        MainChara.HP += (int)(MainChara.MaxHP * 0.2);
+                        MainChara.MP += (int)(MainChara.MaxMP * 0.2);
+                        if (MainChara.HP > MainChara.MaxHP)
+                        {
+                            MainChara.HP = MainChara.MaxHP;
+                        }
+                        if (MainChara.MP > MainChara.MaxMP)
+                        {
+                            MainChara.MP = MainChara.MaxMP;
+                        }
                         Console.WriteLine("{0}/{1}", MainChara.HP, MainChara.MaxHP);
                         break;
                     case 2:
