@@ -11,7 +11,7 @@ namespace Project_Prototype
         private MinorEnemyManager enemyManager;
         private int currentFloor;
         private int Goal;
-        public Dungeon(Hero MainChara, int Goal) 
+        public Dungeon(Hero MainChara, int Goal)
         {
 
             enemyManager = new MinorEnemyManager();
@@ -75,7 +75,7 @@ namespace Project_Prototype
                         Story2.Town(MainChara);
                         return;
                 }
-                 static void ExitGame()
+                static void ExitGame()
                 {
                     Console.WriteLine("\nPress any key to exit...");
                     Console.ReadKey();
