@@ -52,7 +52,7 @@ namespace Project_Prototype
                                 Console.ReadLine();
                                 ExitGame();
                                 return;
-                            }
+                            }   
                             currentFloor++;
                             Console.WriteLine("You defeated the enemy!");
                             Console.ReadLine();
