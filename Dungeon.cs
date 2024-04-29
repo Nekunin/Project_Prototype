@@ -11,7 +11,7 @@ namespace Project_Prototype
         private MinorEnemyManager enemyManager;
         private int currentFloor;
         private int Goal;
-        public Dungeon(Hero MainChara, int Goal) 
+        public Dungeon(Hero MainChara, int Goal)
         {
 
             enemyManager = new MinorEnemyManager();
@@ -66,7 +66,9 @@ namespace Project_Prototype
                         }
                         break;
                     case 1:
-                        Console.WriteLine("You took a nap. HP and MP recovered.");
+                        Console.WriteLine("You took a short rest. HP and MP recovered.");
+                        MainChara.HP += MainChara.MaxHP * .2;
+                        Console.WriteLine("{0}/{1}", MainChara.HP, MainChara.MaxHP);
                         break;
                     case 2:
                         Inventory_Equipment.Inventory(MainChara);
@@ -75,7 +77,7 @@ namespace Project_Prototype
                         Story2.Town(MainChara);
                         return;
                 }
-                 static void ExitGame()
+                static void ExitGame()
                 {
                     Console.WriteLine("\nPress any key to exit...");
                     Console.ReadKey();
