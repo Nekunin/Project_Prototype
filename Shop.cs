@@ -24,13 +24,26 @@ namespace Project_Prototype
 
                         break;
                     case 1:
-                        Console.WriteLine("Please take a look at our merchandise");
-
+                        Console.WriteLine("Wait for the full release");
+                        Console.ReadLine();
                         break;
                     case 2:
-                        Console.WriteLine("I hate this job, I hope you don't end up like me...");
+                        Console.WriteLine("Wait for the full release");
+                        Console.ReadLine();
                         break;
                     case 3:
+                        Console.WriteLine("Wait for the full release");
+                        Console.ReadLine();
+                        break;
+                    case 4:
+                        Console.WriteLine("Wait for the full release");
+                        Console.ReadLine();
+                        break;
+                    case 5:
+                        Console.WriteLine("I hate this job, I hope you don't end up like me...");
+                        Console.ReadLine();
+                        break;
+                    case 6:
                         return;
                 }
             }
