@@ -9,7 +9,7 @@ namespace Project_Prototype
 {
     class Game
     {
-        private static Hero MainChara = new Hero("test",1,1,1,1,1,1,1,1,1);
+        private static Hero MainChara = new Hero("test",1,1,1,1,1,1,1,1,1,1);
         public void start()
         {
 
@@ -90,23 +90,11 @@ Welcome to MJD-RPG, what would you like to do?
         }
         private void NormalMode()
         {
-            MainChara = new Hero("Leon", 500, 30, 25, 10, 9, 23, 15, 18, 6);
-            MoneyManager moneyManager = MoneyManager.GetInstance();
-            int currentMoney = moneyManager.GetMoney();
-            int additionalMoney = 200;
-            moneyManager.AddMoney(additionalMoney);
-            int updatedMoney = moneyManager.GetMoney();
-
-
+            MainChara = new Hero("Leon", 500, 50, 25, 10, 9, 23, 15, 18, 6,300);
         }
         private void HardMode()
         {
-            MainChara = new Hero("Reset", 200, 250, 10, 32, 20, 9, 30, 25, 23);
-            MoneyManager moneyManager = MoneyManager.GetInstance();
-            int currentMoney = moneyManager.GetMoney();
-            int additionalMoney = 50;
-            moneyManager.AddMoney(additionalMoney);
-            int updatedMoney = moneyManager.GetMoney();
+            MainChara = new Hero("Reset", 200, 250, 10, 32, 20, 9, 30, 25, 23,150);
         }
     }
 }

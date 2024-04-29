@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Project_Prototype
 {
     internal class Story2
     {
-        MoneyManager moneyManager = MoneyManager.GetInstance();
+
         int observationcount = 0;
+
         public string Location = "Main Town";
-        public int talkcount = 0;
+        public static int talkcount = 0;
         int lookcount = 0;
-        public void Secondpart(Hero MainChara)
+
+        public void Secondpart(Hero MainChara, int x)
         {
 
             Console.Clear();
@@ -57,7 +60,7 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                 Console.WriteLine("why is there a sister like yourself over here?]");
                 Console.ReadLine();
                 Console.WriteLine("You explain your situation");
-                Console.Clear();
+                Console.ReadLine();
                 Console.WriteLine("very well go on!");
                 Console.WriteLine("You have been granted access to the city");
                 Console.ReadLine();
@@ -71,7 +74,11 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                 Console.WriteLine("You are offended but grateful nonetheless");
                 Console.ReadLine();
             }
-            string prompt = $"{MainChara.Name}'s Adventure";
+            Town(MainChara);
+        }
+        public static void Town(Hero MainChara) 
+        {
+        string prompt = $"{MainChara.Name}'s Adventure";
             string[] townoptions = { "Move", "Look", "Talk", "Inventory" };
             Menu TownMenu = new Menu(prompt, townoptions);
 
@@ -82,7 +89,7 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                 switch (selectedIndex)
                 {
                     case 0:
-                        Movement();
+                        Movement(MainChara);
                         break;
                     case 1:
                         Observations();
@@ -114,12 +121,12 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                         }
                         break;
                     case 3:
-                        Inventory(MainChara);
+                        Inventory_Equipment.Inventory(MainChara);
                         break;
                 }
             }
         }
-        private void Movement()
+        public static void Movement(Hero MainChara)
         {
             if (talkcount == 0)
             {
@@ -129,12 +136,57 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
             }
             if (talkcount == 1)
             {
-                Console.WriteLine("Not Implemented Yet");
-                Console.ReadLine();
+                string FirstPrompt = "Where should I go?";
+                string[] FirstOptions = { "Don't Move", "Shop", "Inn", "Forest of Despair" };
+                Menu FirstDisplacement = new Menu(FirstPrompt, FirstOptions);
+                int selectedIndex = FirstDisplacement.Run();
+                switch (selectedIndex)
+                {
+                    case 0:
+                        return;
+                    case 1:
+                        Shop.shop(MainChara);
+                        break;
+                    case 2:
+                        Console.WriteLine("Welcome!");
+                        Console.WriteLine("would you like to spend 50 GOLD to stay for the night?");
+                        Console.ReadLine();
+                        string prompt = "ANSWER";
+                        String[] options = { "Yes", "No" };
+                        Menu INN = new Menu(prompt, options);
+                        int index = INN.Run();
+                        switch (index)
+                        {
+                            case 0:
+                                if (MainChara.MONEY >= 50) 
+                                {
+                                    MainChara.HP = MainChara.MaxHP;
+                                    MainChara.MP = MainChara.MaxMP;
+                                    MainChara.MONEY -= 50;
+                                    Console.WriteLine("Thanks for satying with us!");
+                                    Console.ReadLine();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("I am sorry it seems that you are broke");
+                                    Console.WriteLine("Come back once you are able to pay");
+                                    Console.ReadLine();
+                                }
+                                return;
+                            case 1:
+                                Console.WriteLine("Oh okay, come back if you change your mind!");
+                                Console.ReadLine();
+                                return;
+                        }
+                        return;
+                    case 3:
+                        Dungeon DespairForest = new Dungeon(MainChara, 50);
+                        return;
+                }
             }
 
         }
-        private void Conversations(Hero MainChara)
+        private static void Conversations(Hero MainChara)
         {
             if (talkcount == 0)
             {
@@ -151,7 +203,7 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                     if (MainChara.Name == "Leon")
                     {
                         Console.WriteLine("[Guard: Here, I will lend you some money; you can pay me back later]");
-                        moneyManager.AddMoney(100);
+                        Hero.AddMoney(MainChara, 100);
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -168,63 +220,11 @@ lllcclONNNNNNNKc'''lXNNNNNNNNNNNNNNNNNNXd,.,'....'',,,;;,,,'''''..       .;odkOO
                 }
             }
         }
-        private void Observations()
+        private static void Observations()
         {
             Console.WriteLine("Seems like a peacefull town");
             Console.WriteLine("The guard appears to be slacking");
             Console.ReadLine();
-        }
-        private void Inventory(Hero MainChara)
-        {
-            string InventoryP = $@"{MainChara.name}'s Inventory
-HP [{MainChara.MaxHP}/{MainChara.HP}] MP [{MainChara.MaxMP}/{MainChara.MP}]
- Gold [To be Implemented Later]";
-            string[] InventoryO = { "Items", "Equipment", "Key Items" };
-            Menu InventoryMenu = new Menu(InventoryP, InventoryO);
-            while (true)
-            {
-                int Inv_selectedIndex = InventoryMenu.Run();
-
-                switch (Inv_selectedIndex)
-                {
-                    case 0:
-                        Console.WriteLine("Not Implemented Yet");
-                        break;
-                    case 1:
-                        Console.WriteLine("Not Implemented Yet");
-                        break;
-                    case 2:
-                        Console.WriteLine("Not Implemented Yet");
-                        break;
-                }
-            }
-        }
-        public void Equipment(Hero MainChara)
-        {
-            string EquipmentP = $"{MainChara.name}'s Inventory";
-            string[] EquipmentO = { "Weapon", "Armor", "Boots", "Accesory" };
-            Menu Equip = new Menu(EquipmentP, EquipmentO);
-            while (true)
-            {
-                int selectedIndex = Equip.Run();
-
-                switch (selectedIndex)
-                {
-                    case 0:
-                        Console.WriteLine("Not Implemented Yet");
-                        break;
-                    case 1:
-                        Console.WriteLine("Not Implemented Yet");
-                        break;
-                    case 2:
-                        Console.WriteLine("Not Implemented Yet");
-                        break;
-                }
-            }
-        }
-        public void EquipWeapon(Hero MainChara, Weapons X)
-        {
-            if 
         }
     }
 }

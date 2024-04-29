@@ -169,7 +169,7 @@ Xx+x+++++;;::::::::::::::::::::::::::::;+;;:.................:.::;+;+;+++++;+xx+
                         Console.WriteLine("There is nothing to do here though?");
                         break;
                     case 1:
-                        story2.Secondpart(MainChara);
+                        story2.Secondpart(MainChara, 1);
                         break;
                 }
             }

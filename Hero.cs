@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Project_Prototype
 {
+    
     public class Hero
     {
+        private Hero MainChara;
         public string name;
         public int MaxHP;
         public int MaxMP;
@@ -20,9 +22,10 @@ namespace Project_Prototype
         public int RES;
         public int SPD;
         public int LUCK;
-        public Hero(string aName, int maxhp, int maxmp, int str, int In, int matk, int end, int res, int spd, int luck) 
+        public int MONEY;
+        public Hero(string aName, int maxhp, int maxmp, int str, int In, int matk, int end, int res, int spd, int luck, int money) 
         {
-            Name = aName; MaxHP = maxhp; MaxMP = maxmp; hp = maxhp; MP = maxmp; STR = str; INT = In; MATK = matk; END = end; RES = res; SPD = spd; LUCK = luck;
+            Name = aName; MaxHP = maxhp; MaxMP = maxmp; hp = maxhp; MP = maxmp; STR = str; INT = In; MATK = matk; END = end; RES = res; SPD = spd; LUCK = luck; MONEY = money;
         }
 
 
@@ -44,6 +47,10 @@ namespace Project_Prototype
         {
             //can change later
             return 20;
+        }
+        public static void AddMoney(Hero MainChara, int money)
+        {
+            MainChara.MONEY += money;
         }
     }
 }
