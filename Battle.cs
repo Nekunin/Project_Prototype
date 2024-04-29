@@ -102,7 +102,6 @@ namespace Project_Prototype
                         Console.WriteLine($"Enemy took {enemyDamage} damage!");
                         // Reduce enemy's HP
                         x.HP -= (int)enemyDamage;
-                        if (x.)
                     }
                     else
                     {
