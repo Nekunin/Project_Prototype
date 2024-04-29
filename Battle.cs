@@ -36,6 +36,10 @@ namespace Project_Prototype
                             int damageToPlayer = MonsterPhysicalAttack(Player, Enemy);
                             UpdatePlayerHP(Player, damageToPlayer);
                         }
+                        else
+                        {
+
+                        }
                         break;
                     case 2:
                         break;
@@ -94,6 +98,11 @@ namespace Project_Prototype
                         // Reduce MP
                         MainChara.MP -= selectedSkill.MPcost;
                         // Apply damage to the enemy or any other action based on the skill
+                        double enemyDamage = selectedSkill.CalculateDamage(MainChara);
+                        Console.WriteLine($"Enemy took {enemyDamage} damage!");
+                        // Reduce enemy's HP
+                        x.HP -= (int)enemyDamage;
+                        if (x.)
                     }
                     else
                     {
