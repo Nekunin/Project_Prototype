@@ -15,11 +15,12 @@ namespace Project_Prototype
         public double MagicAttackModifier { get; private set; }
         public int MPcost {  get; private set; }
         public int HPRecovery { get; private set; }
+        public int MPRecovery { get; private set; }
         public static List<Skill> ResetSkills;
         public static List<Skill> LeonSkills;
         public static List<Skill> EquipmentSkills;
 
-        public Skill(string name, int baseDamage, double intelligenceModifier, double magicAttackModifier, int MPCost, int HPrecovery = 0)
+        public Skill(string name, int baseDamage, double intelligenceModifier, double magicAttackModifier, int MPCost, int HPrecovery = 0, int MPrecovery = 0)
         {
             Name = name;
             BaseDamage = baseDamage;
@@ -27,7 +28,7 @@ namespace Project_Prototype
             MagicAttackModifier = magicAttackModifier;
             MPcost = MPCost;
             HPRecovery = HPrecovery;
-
+            MPRecovery = MPrecovery;
         }
         static Skill()
         {
