@@ -45,7 +45,7 @@ namespace Project_Prototype
                 new Skill("UpperCut", 30, 1.3, 1.2, 10),
                 new Skill("FirstAid", -50, -50, -50, 20, 40),
                 new Skill("Atomic Slash", 999, 1, 1, 100),
-                new Skill("MP Recovery", 0, 1, 1, 0, 0, 10)
+                new Skill("MP Recovery", -50, -50, -50, 0, 0, 10)
             };
             EquipmentSkills = new List<Skill>
             {
