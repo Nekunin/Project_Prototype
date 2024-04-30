@@ -80,7 +80,8 @@ namespace Project_Prototype
                         {
                             MainChara.MP = MainChara.MaxMP;
                         }
-                        Console.WriteLine("{0}/{1}", MainChara.HP, MainChara.MaxHP);
+                        Console.WriteLine("HP: {0}/{1}", MainChara.HP, MainChara.MaxHP);
+                        Console.WriteLine("MP: {0}/{1}", MainChara.MP, MainChara.MaxMP);
                         Console.ReadLine();
                         }
                         else
