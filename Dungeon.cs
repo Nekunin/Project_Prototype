@@ -55,6 +55,7 @@ namespace Project_Prototype
                             }   
                             currentFloor++;
                             Console.WriteLine("You defeated the enemy!");
+                            enemy.HP = enemy.MaxHP;
                             if (currentFloor == 50)
                             {
                                 Console.Clear();

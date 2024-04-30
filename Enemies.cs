@@ -11,6 +11,7 @@ namespace Project_Prototype
     public class MinorEnemy
     {
         public int hp;
+        public int MaxHP;
         public string Name { get; private set; }
         public int HP { get => hp; set => hp = value; }
         public int MP { get; private set; }
@@ -25,6 +26,7 @@ namespace Project_Prototype
         public MinorEnemy(string name, int hp, int mp, int str, int In, int matk, int end, int res, int spd, int luck)
         {
             Name = name; HP = hp; MP = mp; STR = str; INT = In; MATK = matk; END = end; RES = res; SPD = spd; LUCK = luck;
+            MaxHP = HP;
 
         }
         //For test gameloop
