@@ -135,6 +135,7 @@ Battle against: {Enemy.Name}";
                         // Perform the selected skill action here
                         double damage = selectedSkill2.CalculateDamage(MainChara);
                         ///add the mp recovery skill
+                        
                         if (selectedSkill2.Name == "FirstAid")
                         {
                             int hprecovery = selectedSkill2.HealthRecovery(MainChara, selectedSkill2);
@@ -154,6 +155,7 @@ Battle against: {Enemy.Name}";
                             Console.ReadKey();
                         }
                         Console.WriteLine($"Using {selectedSkill2.Name}, dealt {damage} damage!");
+
                     }
 
                     else
@@ -165,6 +167,11 @@ Battle against: {Enemy.Name}";
                     // Reduce MP
                     MainChara.MP -= selectedSkill2.MPcost;
                     // Apply damage to the enemy or any other action based on the skill
+                    double enemyDamage = selectedSkill2.CalculateDamage(MainChara);
+                    Console.WriteLine($"Enemy took {enemyDamage} damage!");
+                    Console.ReadLine();
+                    // Reduce enemy's HP
+                    x.HP -= (int)enemyDamage;
                 }
                 else
                 {
