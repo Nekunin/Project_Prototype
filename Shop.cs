@@ -20,8 +20,8 @@ namespace Project_Prototype
                 switch (selectedIndex)
                 {
                     case 0:
-                        Console.WriteLine("Please take a look at our merchandise");
-
+                        Console.WriteLine("Wait for the full release");
+                        Console.ReadLine();
                         break;
                     case 1:
                         Console.WriteLine("Wait for the full release");
