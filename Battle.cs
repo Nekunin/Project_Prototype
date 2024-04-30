@@ -142,7 +142,6 @@ namespace Project_Prototype
             {
                 Console.WriteLine("Invalid selection");
             }
-            }
 
         }
     }
