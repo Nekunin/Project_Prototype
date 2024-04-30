@@ -66,18 +66,38 @@ namespace Project_Prototype
                         }
                         break;
                     case 1:
+                        if (Rest())
+                        {
                         Console.WriteLine("You took a short rest. HP and MP recovered.");
                         MainChara.HP += (int)(MainChara.MaxHP * 0.2);
                         MainChara.MP += (int)(MainChara.MaxMP * 0.2);
-                        if (MainChara.HP > MainChara.MaxHP)
+                            if (MainChara.HP > MainChara.MaxHP)
                         {
                             MainChara.HP = MainChara.MaxHP;
                         }
-                        if (MainChara.MP > MainChara.MaxMP)
+                            if (MainChara.MP > MainChara.MaxMP)
                         {
                             MainChara.MP = MainChara.MaxMP;
                         }
                         Console.WriteLine("{0}/{1}", MainChara.HP, MainChara.MaxHP);
+                        Console.ReadLine();
+                        }
+                        else
+                        {
+                            //enemy will be selected from a random list
+                            Console.WriteLine("An enemy found you!");
+                            Console.ReadLine();
+                            MinorEnemy enemy = enemyManager.GetRandomEnemy();
+                            Battle battle = new Battle(MainChara, enemy);
+                            if (MainChara.HP <= 0)
+                            {
+                                //Closes the game if you die
+                                Console.WriteLine("You have succumbed to your wounds.");
+                                Console.ReadLine();
+                                ExitGame();
+                                return;
+                            }
+                        }
                         break;
                     case 2:
                         Inventory_Equipment.Inventory(MainChara);
@@ -99,7 +119,13 @@ namespace Project_Prototype
         {
             Random random = new Random();
             int chance = random.Next(1, 101);
-            return chance <= 60;
+            return chance <= 40;
+        }
+        private bool Rest()
+        {
+            Random random = new Random();
+            int chance = random.Next(1, 101);
+            return chance <= 70;
         }
         public class MinorEnemyManager
         {
