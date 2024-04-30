@@ -10,7 +10,8 @@ namespace Project_Prototype
     {
         public Battle(Hero Player, MinorEnemy Enemy)
         {
-            string prompt = "Battle for Supremacy";
+            string prompt = @$"Battle for Supremacy
+Battle against: {Enemy.Name}";
             string[] options = { "Attack", "Skill", "Guard", "Items" };
             Menu Fight = new Menu(prompt, options);
             while (Player.HP > 0 && Enemy.HP > 0)
@@ -36,12 +37,10 @@ namespace Project_Prototype
                             int damageToPlayer = MonsterPhysicalAttack(Player, Enemy);
                             UpdatePlayerHP(Player, damageToPlayer);
                         }
-                        else
-                        {
-
-                        }
                         break;
                     case 2:
+                        Console.WriteLine("Wait for the full release");
+                        Console.ReadLine();
                         break;
                     case 3:
                         break;
@@ -95,11 +94,19 @@ namespace Project_Prototype
                         // Perform the selected skill action here
                         double damage = selectedSkill.CalculateDamage(MainChara);
                         Console.WriteLine($"Using {selectedSkill.Name}, dealt {damage} damage!");
+                        if (selectedSkill.Name == "Life Drain")
+                        {
+                            int hprecovery = selectedSkill.HealthRecovery(MainChara, selectedSkill);
+                            Console.WriteLine($"{MainChara.Name} has recovered {hprecovery - MainChara.HP} points of hp");
+                            MainChara.HP = hprecovery;
+
+                        }
                         // Reduce MP
                         MainChara.MP -= selectedSkill.MPcost;
                         // Apply damage to the enemy or any other action based on the skill
                         double enemyDamage = selectedSkill.CalculateDamage(MainChara);
                         Console.WriteLine($"Enemy took {enemyDamage} damage!");
+                        Console.ReadLine();
                         // Reduce enemy's HP
                         x.HP -= (int)enemyDamage;
                     }
@@ -127,6 +134,14 @@ namespace Project_Prototype
                     {
                         // Perform the selected skill action here
                         double damage = selectedSkill2.CalculateDamage(MainChara);
+                        ///add the mp recovery skill
+                        if (selectedSkill2.Name == "FirstAid")
+                        {
+                            int hprecovery = selectedSkill2.HealthRecovery(MainChara, selectedSkill2);
+                            Console.WriteLine($"{MainChara.Name} has recovered {hprecovery - MainChara.HP} points of hp");
+                            MainChara.HP = hprecovery;
+
+                        }
                         Console.WriteLine($"Using {selectedSkill2.Name}, dealt {damage} damage!");
                         // Reduce MP
                         MainChara.MP -= selectedSkill2.MPcost;

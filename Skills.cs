@@ -42,7 +42,7 @@ namespace Project_Prototype
             {
                 new Skill("Bonk", 50, 1.3, 1.2, 20),
                 new Skill("UpperCut", 30, 1.3, 1.2, 10),
-                new Skill("FirstAid", 0, 1, 1, 20, 40),
+                new Skill("FirstAid", -50, -50, -50, 20, 40),
                 new Skill("Atomic Slash", 999, 1, 1, 100)
             };
             EquipmentSkills = new List<Skill>
@@ -62,6 +62,15 @@ namespace Project_Prototype
 
             // Ensure the damage is not negative
             return totalDamage > 0 ? totalDamage : 0;
+        }
+        public int HealthRecovery(Hero MainChara, Skill skill)
+        {
+           int HP = MainChara.HP + skill.HPRecovery;
+            if (HP > MainChara.MaxHP)
+            {
+                HP = MainChara.MaxHP;
+            }
+            return HP;
         }
     }
 }
