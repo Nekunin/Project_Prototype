@@ -151,7 +151,7 @@ namespace Project_Prototype
                 CommonEnemies.Add(new MinorEnemy("Kobold", 25, 10, 5, 4, 4, 4, 5, 18, 7));
                 CommonEnemies.Add(new MinorEnemy("Bandit", 20, 10, 10, 10, 10, 5, 13, 9, 13));
                 CommonEnemies.Add(new MinorEnemy("Shadow", 80, 23, 22, 17, 13, 9999, -20, -5, 10));
-                CommonEnemies.Add(new MinorEnemy("Treant", 20, 10, 8, 14, 9, 35, -5, 0, 2));
+                CommonEnemies.Add(new MinorEnemy("Treant", 20, 10, 14, 14, 9, 35, -5, 0, 2));
 
             }
             public MinorEnemy GetRandomEnemy()
