@@ -108,39 +108,40 @@ namespace Project_Prototype
                         Console.WriteLine("Not enough MP to use this skill!");
                     }
                 }
-                else if (MainChara.name == "Leon")
+            }
+            else if (MainChara.name == "Leon")
+            {
+                string prompt2 = "Choose a Skill";
+                string[] options2 = new string[Skill.LeonSkills.Count];
+                for (int i = 0; i < Skill.LeonSkills.Count; i++)
                 {
-                    string prompt2 = "Choose a Skill";
-                    string[] options2 = new string[Skill.LeonSkills.Count];
-                    for (int i = 0; i < Skill.LeonSkills.Count; i++)
+                    options2[i] = Skill.LeonSkills[i].Name;
+                }
+                Menu SkillMenu2 = new Menu(prompt2, options2);
+                int selectedIndex2 = SkillMenu2.Run();
+                if (selectedIndex2 >= 0 && selectedIndex2 < Skill.LeonSkills.Count)
+                {
+                    Skill selectedSkill2 = Skill.LeonSkills[selectedIndex2];
+                    // Check if MP is sufficient to use the skill
+                    if (MainChara.MP >= selectedSkill2.MPcost)
                     {
-                        options[i] = Skill.LeonSkills[i].Name;
+                        // Perform the selected skill action here
+                        double damage = selectedSkill2.CalculateDamage(MainChara);
+                        Console.WriteLine($"Using {selectedSkill2.Name}, dealt {damage} damage!");
+                        // Reduce MP
+                        MainChara.MP -= selectedSkill2.MPcost;
+                        // Apply damage to the enemy or any other action based on the skill
                     }
-                    Menu SkillMenu2 = new Menu(prompt2, options2);
-                    int selectedIndex2 = SkillMenu2.Run();
-                    if (selectedIndex2 >= 0 && selectedIndex2 < Skill.LeonSkills.Count)
+                    else
                     {
-                        Skill selectedSkill2 = Skill.LeonSkills[selectedIndex2];
-                        // Check if MP is sufficient to use the skill
-                        if (MainChara.MP >= selectedSkill2.MPcost)
-                        {
-                            // Perform the selected skill action here
-                            double damage = selectedSkill2.CalculateDamage(MainChara);
-                            Console.WriteLine($"Using {selectedSkill2.Name}, dealt {damage} damage!");
-                            // Reduce MP
-                            MainChara.MP -= selectedSkill2.MPcost;
-                            // Apply damage to the enemy or any other action based on the skill
-                        }
-                        else
-                        {
-                            Console.WriteLine("Not enough MP to use this skill!");
-                        }
+                        Console.WriteLine("Not enough MP to use this skill!");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Invalid selection");
-                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid selection");
+            }
             }
 
         }
