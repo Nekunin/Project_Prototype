@@ -125,9 +125,23 @@ namespace Project_Prototype
                     // Check if MP is sufficient to use the skill
                     if (MainChara.MP >= selectedSkill2.MPcost)
                     {
-                        // Perform the selected skill action here
-                        double damage = selectedSkill2.CalculateDamage(MainChara);
-                        Console.WriteLine($"Using {selectedSkill2.Name}, dealt {damage} damage!");
+                        if (selectedSkill2.Name == "MP Recovery")
+                        {
+                            MainChara.MP += selectedSkill2.MPRecovery;
+                            if (MainChara.MP > MainChara.MaxMP)
+                            {
+                                MainChara.MP = MainChara.MaxMP;
+                            }
+                            Console.WriteLine("Recovered 10 MP");
+                            Console.WriteLine("MP: {0}/{1}", MainChara.MP, MainChara.MaxMP);
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            // Perform the selected skill action here
+                            double damage = selectedSkill2.CalculateDamage(MainChara);
+                            Console.WriteLine($"Using {selectedSkill2.Name}, dealt {damage} damage!");
+                        }
                         // Reduce MP
                         MainChara.MP -= selectedSkill2.MPcost;
                         // Apply damage to the enemy or any other action based on the skill

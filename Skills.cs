@@ -15,11 +15,12 @@ namespace Project_Prototype
         public double MagicAttackModifier { get; private set; }
         public int MPcost {  get; private set; }
         public int HPRecovery { get; private set; }
+        public int MPRecovery { get; private set; }
         public static List<Skill> ResetSkills;
         public static List<Skill> LeonSkills;
         public static List<Skill> EquipmentSkills;
 
-        public Skill(string name, int baseDamage, double intelligenceModifier, double magicAttackModifier, int MPCost, int HPrecovery = 0)
+        public Skill(string name, int baseDamage, double intelligenceModifier, double magicAttackModifier, int MPCost, int HPrecovery = 0, int MPrecovery = 0)
         {
             Name = name;
             BaseDamage = baseDamage;
@@ -27,7 +28,7 @@ namespace Project_Prototype
             MagicAttackModifier = magicAttackModifier;
             MPcost = MPCost;
             HPRecovery = HPrecovery;
-
+            MPRecovery = MPrecovery;
         }
         static Skill()
         {
@@ -43,7 +44,8 @@ namespace Project_Prototype
                 new Skill("Bonk", 50, 1.3, 1.2, 20),
                 new Skill("UpperCut", 30, 1.3, 1.2, 10),
                 new Skill("FirstAid", 0, 1, 1, 20, 40),
-                new Skill("Atomic Slash", 999, 1, 1, 100)
+                new Skill("Atomic Slash", 999, 1, 1, 100),
+                new Skill("MP Recovery", 0, 1, 1, 0, 0, 10)
             };
             EquipmentSkills = new List<Skill>
             {
