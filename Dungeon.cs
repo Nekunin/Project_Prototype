@@ -98,6 +98,8 @@ namespace Project_Prototype
                                 ExitGame();
                                 return;
                             }
+                            Console.WriteLine("You defeated the enemy!");
+                            enemy.HP = enemy.MaxHP;
                         }
                         break;
                     case 2:
